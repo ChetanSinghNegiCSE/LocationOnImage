@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted) {
                 // Permission granted, launch the camera
-                dispatchTakePictureIntent()
+                //dispatchTakePictureIntent()
             } else {
                 // Permission denied
             }
@@ -83,12 +83,13 @@ class MainActivity : AppCompatActivity() {
             }
         })
 */
-        requestLocationPermission()
+        requestCameraPermission()
         checkAndEnableGPS()
 
+
         binding.button.setOnClickListener {
-            requestCameraPermission()
-            //dispatchTakePictureIntent()
+            requestLocationPermission()
+            dispatchTakePictureIntent()
         }
     }
 
@@ -99,7 +100,7 @@ class MainActivity : AppCompatActivity() {
                 android.Manifest.permission.CAMERA
             ) == PackageManager.PERMISSION_GRANTED -> {
                 // Permission already granted, launch the camera
-                dispatchTakePictureIntent()
+                //dispatchTakePictureIntent()
             }
 
             ActivityCompat.shouldShowRequestPermissionRationale(
